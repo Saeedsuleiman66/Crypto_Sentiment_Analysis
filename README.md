@@ -1,48 +1,35 @@
-# 🪙 Crypto Sentiment Analysis: End-to-End Data Analytics Pipeline
+# 📉 Bitcoin Sentiment-Price Correlation Analysis
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
-![SQL](https://img.shields.io/badge/SQL-Data_Engineering-lightgrey?logo=postgresql)
-![Power BI](https://img.shields.io/badge/Power_BI-Visualization-yellow?logo=powerbi)
-![NLP](https://img.shields.io/badge/Focus-Sentiment_Analysis-orange)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
+![Financial Analysis](https://img.shields.io/badge/Domain-FinTech-green)
+![NLP](https://img.shields.io/badge/NLP-VADER-orange)
+![Data Engineering](https://img.shields.io/badge/Pipeline-ETL-lightgrey)
 
 ## 📌 Project Overview
-This project demonstrates a full-cycle data analytics workflow designed to track and analyze cryptocurrency market sentiment. By integrating **SQL** for data structuring, **Python** for Natural Language Processing (NLP), and **Power BI** for business intelligence, the project transforms unstructured textual data into actionable market insights.
+This project investigates the relationship between global news sentiment and Bitcoin (BTC) price movements. By integrating real-time news data with historical financial market prices, I developed a pipeline that quantifies the "mood" of the market and analyzes its impact on price volatility.
 
-The analysis focuses on identifying the "Fear & Greed" levels in the market by correlating public discourse with digital asset trends.
+## 🛠️ Tech Stack
+- **Data Sourcing:** `Requests` (NewsAPI), `yfinance` (Yahoo Finance API).
+- **Processing:** `Pandas` for data manipulation and merging.
+- **NLP:** `vaderSentiment` for rule-based sentiment intensity analysis.
+- **Database Readiness:** `SQLAlchemy` & `PyMySQL` for future scaling and storage.
 
-## 🛠️ Technical Workflow & Implementation
+## ⚙️ The Data Pipeline
+1.  **News Extraction:** Automated fetching of global Bitcoin-related news (titles and descriptions).
+2.  **Sentiment Scoring:** Using the VADER analyzer to assign a `compound score` (-1 to 1) for each article.
+3.  **Market Integration:** Pulling BTC-USD closing prices and synchronizing them with news dates.
+4.  **Feature Engineering:** - Aggregated daily sentiment averages.
+    - Calculated **Daily Percentage Change (% Change)** in BTC prices to identify correlation points.
 
-### 1. Data Engineering (SQL)
-- **File:** `crypto_sentiment_analysis_sql_script.sql`
-- **Action:** Structured the raw data environment. Used SQL to perform data cleaning, filtering, and aggregations.
-- **Goal:** Ensuring data integrity and preparing optimized views for the analytical model.
+## 🚀 Key Insights
+- **Sentiment Volatility:** Identified how negative news spikes (e.g., "Loss of Life Savings") correlate with price dips.
+- **Data Consolidation:** Successfully merged heterogeneous data sources (News JSON + Financial DataFrames) into a clean, analysis-ready format.
+- **Predictive Foundation:** Built a dataset that serves as a baseline for training more advanced Machine Learning models.
 
-### 2. Sentiment Processing (Python/NLP)
-- **File:** `Crpto_sentiment_analysis_script.ipynb`
-- **Action:** Leveraged **TextBlob/NLTK** to perform sentiment scoring. 
-- **Tasks:** - Advanced text preprocessing (removing URLs, hashtags, and crypto-specific noise).
-  - Calculating **Polarity** (how positive/negative) and **Subjectivity** (how opinionated) scores.
-  - Exporting processed data for visualization.
-
-### 3. Business Intelligence & Visualization (Power BI)
-- **File:** `crypto_sentiment_analysis.pbix`
-- **Action:** Built an interactive dashboard to monitor market mood.
-- **Key Visuals:** Sentiment trends over time, asset dominance rankings, and sentiment-price correlation metrics.
-
-## 📁 Repository Structure
-- 📝 `Crpto_sentiment_analysis_script.ipynb`: Core Python logic for NLP.
-- 🗄️ `crypto_sentiment_analysis_sql_script.sql`: Database scripts for data manipulation.
-- 📊 `crypto_sentiment_analysis.pbix`: The final interactive BI report.
-
-## 🚀 Key Features
-* **Full-Stack Analytics:** Demonstrates proficiency in the three most critical tools for modern data analysts (SQL, Python, Power BI).
-* **Automated NLP:** Quantifies subjective text into objective metrics.
-* **Scalable Architecture:** The workflow can be adapted to any financial sentiment analysis (Stocks, Forex, etc.).
-
-## 📑 How to Run
-1. **Database:** Execute the SQL script to prepare your local or cloud database.
-2. **Analysis:** Run the Jupyter Notebook to process sentiment data.
-3. **Report:** Open the `.pbix` file in Power BI Desktop to explore the insights.
+## 📁 Repository Files
+- `Crpto_sentiment_analysis_script.ipynb`: Complete Python workflow.
+- `crypto_sentiment_analysis_sql_script.sql`: Data structuring and storage logic.
+- `crypto_sentiment_analysis.pbix`: Interactive dashboard for visualizing these correlations.
 
 ## 👤 Author
 **Saeed Soliman**
